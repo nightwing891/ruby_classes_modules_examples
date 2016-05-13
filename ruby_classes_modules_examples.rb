@@ -19,6 +19,8 @@ require 'pry'
 # keep_coding
 
 class Person
+	attr_accessor :first_name, :last_name, :age, :gender
+
 	def initialize(first_name, last_name, age, gender)
 		@first_name = first_name
 		@last_name = last_name
@@ -26,34 +28,18 @@ class Person
 		@gender = gender
 	end
 
-	def first_name
-		puts @first_name
-	end
-
-	def last_name
-		puts @last_name
-	end
-
-	def age
-		puts @age
-	end
-
-	def gender
-		puts @gender
-	end
-
 end
 
 henry = Person.new('Henry', 'Doan', 19, 'Male')
-henry.first_name
-henry.last_name
-henry.age
-henry.gender
+puts henry.first_name
+puts henry.last_name
+puts henry.age
+puts henry.gender
 
 dave = Person.new('Dave', 'Jungst', 35, 'Male')
-dave.first_name
-dave.last_name
-dave.age
-dave.gender
+puts dave.first_name
+puts dave.last_name
+puts dave.age
+puts dave.gender
 
 
