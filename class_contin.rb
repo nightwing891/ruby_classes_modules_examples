@@ -1,5 +1,4 @@
-#base class
-
+# base class
 class Mammal
   attr_accessor :gender, :name, :age, :alive
 
@@ -11,7 +10,7 @@ class Mammal
   end
 
   def speak
-    puts 'I am a mammal...'
+    raise 'You must implement this in a sub class'
   end
 
   def increment_age(age = 1)
@@ -19,24 +18,66 @@ class Mammal
   end
 
   def kill
-    @alive = false if @alive
+    @alive = false if @alive  
   end
 
   def self.type_of_blood
     puts 'Mammals are warm blooded'
   end
-
 end
 
-henry = Mammal.new('Male', 'Henry', 26)
+# sub class
+class Human < Mammal
+  def initialize(gender, name, age, alive, hair_color)
+    super(gender, name, age, alive)
+    @hair_color = hair_color
+  end
+
+  def speak
+    puts 'This is english...'
+  end
+end
+
+# sub class
+class Elephant < Mammal
+  def initialize(gender, name, age, alive)
+    super(gender, name, age, alive)
+  end
+
+  def speak
+    puts 'Trumpeting...'
+  end
+end
+
+# sub class
+class Cat < Mammal
+  def initialize(gender, name, age, alive, fur_color)
+    super(gender, name, age, alive)
+    @fur_color = fur_color
+  end
+
+  def speak
+    puts 'Meow...'
+  end
+end
+
+henry = Human.new('Male', 'Henry', 19, true, 'Brown')
+henry.speak
+jax = Cat.new('Male', 'Jax', 2, true, 'Black & White')
+jax.speak
+dumbo = Elephant.new('Male', 'Dumbo', 3, true)
+dumbo.speak
 # henry.speak
 # henry.increment_age
 # puts henry.alive
 # henry.kill
 # puts henry.alive
-Mammal.type_of_blood
-henry.speak
+
 
 # human
 # elephant
 # cat
+
+
+
+
